@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>homePage</title>
+
+</head>
+
+<body>
+
+  <div class="mainDiv">
+
+    <!-- <div class="navbar"> -->
+      <!-- <button class="bookShowButton">BOOK_SHOW</button>
+      <div> -->
+        <!-- <button class="button_simple" onclick="location.href = '/signup'">Sign Up</button>
+        <button class="button_simple" onclick="location.href = '/signin'">Sign In</button>
+        <button class="button_simple" onclick="location.href = '/signout'">Sign Out</button> -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+    <div class="content">
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissble fade show" role="alert">
+        <strong>Message : </strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-lable="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+
+      <h3>Welcometo Geeks For Geeks</h3>
+
+      {% if user.is_authenticated %}
+      <h3>Hello {{ fname }}</h3>
+      <h4>You're successfully logged in.</h4>
+      <button class="button_simple" onclick="location.href = '/signout'">Sign Out</button>
+      {% else %}
+      <button class="button_simple" onclick="location.href = '/signup'">Sign Up</button>
+      <button class="button_simple" onclick="location.href = '/signin'">Sign In</button>
+      {% endif %}
+
+      <!-- <button class="button_simple" onclick="location.href = '/bookingPage';">Take a tour</button> -->
+    </div>
+
+    <div class="side-bar">
+      <img src="/static/images/menu.png" class="menu">
+      <div class="other1">
+        <button>one</button>
+        <button>one</button>
+        <button>one</button>
+        <button>one</button>
+        <button>one</button>
+      </div>
+      <div class="other2">
+        <button>one</button>
+        <button>one</button>
+      </div>
+    </div>
+
+    <div class="bubbles">
+      <img src="/static/images/bubble.png">
+      <img src="/static/images/bubble.png">
+      <img src="/static/images/bubble.png">
+      <img src="/static/images/bubble.png">
+      <img src="/static/images/bubble.png">
+      <img src="/static/images/bubble.png">
+      <img src="/static/images/bubble.png">
+    </div>
+
+  </div>
+
+</body>
+
+</html>

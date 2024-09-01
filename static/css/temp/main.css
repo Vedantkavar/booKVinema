@@ -1,0 +1,184 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  font-family: Roboto;
+}
+h1
+{
+  font-size: 80px;
+  margin: 10px 0 30px;
+  line-height: 80px;
+}
+.button_simple
+{
+  color: white;
+  border-radius: 20px;
+  padding: 10px 25px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  cursor: pointer;
+}
+.navbar
+{
+  /* transform: translateY(-15%); */
+  height : 80px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(#00545d,#000729);
+  padding: 0 100px 0 40px;
+  position: fixed;
+  top: 0;
+  right: 80px;
+  z-index: 5;
+  left: 0;
+}
+
+.mainDiv
+{
+  width: 100%;
+  height: 100vh;
+  background-image: url("/static/images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bookShowButton
+{
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  background : transparent;
+  border: none;
+}
+
+.content
+{
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-80%);
+  z-index: 2
+}
+
+.side-bar
+{
+  width: 80px;
+  height: 100vh;
+  background: linear-gradient(#00545d,#000729);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.menu
+{
+  display: block;
+  width: 25px;
+  margin: 40px auto 0;
+  cursor: pointer;
+}
+.other1
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+.other1 button,.other2 button
+{
+  color: white;
+  border-radius: 20px;
+  padding: 5px 15px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.other2
+{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  bottom: 50px;
+  right: 0px;
+  left: 0;
+}
+
+.bubbles img
+{
+  width: 50px;
+  animation: goUp 8s linear infinite;
+}
+.bubbles
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: -60px;
+}
+
+@keyframes goUp
+{
+  0%{
+    transform: translate(0);
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  70%{
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(-90vh);
+    opacity: 0;
+  }
+}
+
+.bubbles img:nth-child(1)
+{
+  animation-delay: 2s;
+  width: 20px;
+}
+.bubbles img:nth-child(2)
+{
+  animation-delay: 1s;
+}
+.bubbles img:nth-child(3)
+{
+  animation-delay: 3.5s;
+  width: 35px;
+}
+.bubbles img:nth-child(4)
+{
+  animation-delay: 4.5s;
+  width: 30px;
+}
+.bubbles img:nth-child(5)
+{
+  animation-delay: 3s;
+}
+.bubbles img:nth-child(6)
+{
+  animation-delay: 6s;
+  width: 25px;
+}
+.bubbles img:nth-child(7)
+{
+  animation-delay: 7s;
+}

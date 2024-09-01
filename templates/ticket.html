@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/ticket2.css">
+  <title>booKVinema</title>
+</head>
+<body>
+  <div class="navbar_P">
+        <img src="/static/images/logoqwe-removebg-preview.png" alt="" class="logo" onclick="location.href='/index'"> 
+  </div>
+
+  <div class="cardWrap">
+    <div class="card cardLeft">
+      <h1>{{ username }}</h1>
+      <div class="title">
+        <h2>{{ seats }}</h2>
+        <span>{{ count }} seats</span> 
+      </div>
+      <div class="name">
+        <h2 style="color: #e84c3d;">{{ moviename }}</h2>
+        <span style="color: #e84c3d;">{{ movieyear }}</span>
+      </div>
+      
+    </div>
+    <div class="card cardRight">
+      <div class="eye"></div>
+      <div class="number">
+        <h3>₹ {{ amount }}</h3>
+      </div>
+      <div class="barcode"></div>
+    </div>
+  </div>
+
+  <script src="/static/js/ticket.js"></script>
+</body>
+</html>

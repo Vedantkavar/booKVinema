@@ -1,0 +1,156 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>booKVinema</title>
+  <link rel="stylesheet" href="/static/css/indexPage.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body style="
+    background-color: white;
+    background-image: url('/static/images/lahiru-maramba-4GLNODmBST8-unsplash.jpg');
+  ">
+
+  {% if user.is_authenticated %}
+        <div class="showMessageWhenLogin">
+          <p>WELCOME</p>
+          <button onclick="
+            const currentUserName = document.getElementById('FNAME').innerText;
+            let temp = '';
+            for(let i=0;i<currentUserName.length;i++)
+            {
+              if(i<6) continue;
+              else temp += currentUserName[i];
+            }
+            localStorage.setItem('currentUserName',temp);
+            location.href='/searchPage'
+          ">Click to visit!!!</button>
+        </div>
+  {% endif %}
+  
+  
+  <div class="mainDiv">
+
+    <header>
+      <img src="/static/images/logoqwe-removebg-preview.png" alt="" class="logo"> 
+      <nav class="navigation">
+        {% if user.is_authenticated %}
+        <a href="#" id="FNAME">Hello {{ USERNAME }}</a>
+        <button class="loginButton" onclick="
+          localStorage.removeItem('currentUserName');
+          localStorage.removeItem('details');
+          location.href = '/signout'
+        ">Sign Out</button>
+        {% else %}
+        <button class="loginButton">Login</button>
+        {% endif %}
+      </nav>
+
+      {% for message in messages %}
+      <div class="showMessage">
+          <div  class=" alert alert-dark" role="alert">
+            {{ message }}
+          </div>
+        </div>
+      {% endfor %}
+    </header>
+
+  </div>
+
+  <div class="wrapper">
+    <span class="icon-close">
+      <ion-icon name="close-outline"></ion-icon>    
+    </span>
+
+    <div class="form-box login">
+
+      <h2>Login</h2>
+      <form action="/signin" method="post">
+      {% csrf_token %} 
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <input type="text" id="username" name="username">
+          <label>Username</label>
+        </div> 
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+          <input type="password" id="pass1" name="pass1" required>
+          <label>Password</label>
+        </div>
+
+        <button class="btn_login" type="submit" onclick="ShowName()">Login</button>
+        
+        <div class="login-register">
+          <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="form-box register">
+
+      <h2>Register</h2>
+      <form action="/signup" method="post">
+      {% csrf_token %} 
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <input type="text" id="username" name="username"  required>
+          <label>Username</label>
+        </div> 
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <input type="text" id="fname" name="fname"  required>
+          <label>Firstname</label>
+        </div> 
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <input type="text" id="lname" name="lname"  required>
+          <label>Lastname</label>
+        </div> 
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+          <input type="email" id="email" name="email"  required>
+          <label>Email</label>
+        </div> 
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+          <input type="password" id="pass1" name="pass1"  required>
+          <label>Password</label>
+        </div>
+
+        <div class="input-box">
+          <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+          <input type="password" id="pass2" name="pass2"  required>
+          <label>Confirm Password</label>
+        </div>
+
+        <button type="submit" class="btn_login">Register</button>
+        
+        <div class="login-register">
+          <p>Have an account? <a href="#" class="login-link">Login</a></p>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+  <script src="/static/js/mainPageJS.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
